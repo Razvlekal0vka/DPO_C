@@ -1,0 +1,54 @@
+Требовалось сделать:
+1. На основе ДЗ предыдущего урока реализовать:
+2. Функции вывода статистики по каждому месяцу: среднемесячная температура, минимальная
+температура в текущем месяце, максимальная температура в текущем месяце, вывода статистику
+за год: • среднегодовая температура • минимальная температура • максимальная температура
+3. Функции добавления, удаления записей, сортировки и создания массива структур, печати массива
+4. Приложение должно обрабатывать аргументы командной строки: минимальный набор поддерживаемых ключей: • -h Описание функционала приложения. Список ключей, которые обрабатывает данное приложение и их назначение. • -f входной файл csv для обработки. • -m
+‹номер месяца> если задан данный ключ, то выводится только статистика за указанный месяц.
+
+команда help - выводит все доступные команды
+
+Пример использования команд
+Welcome to the Temperature Data Manager!
+Available commands:
+  add <year> <month> <day> <hour> <minute> <temperature>  Add a temperature record
+  delete <index>                                           Delete a temperature record by index
+  sort                                                    Sort temperature records
+  print                                                   Print all temperature records
+  stats month <month>                                     Print monthly statistics
+  stats year                                             Print yearly statistics
+  help                                                   Display this help message
+  exit                                                   Exit the program
+
+Enter command: add 2023 10 5 14 30 25
+Record added.
+
+Enter command: add 2023 10 6 15 45 22
+Record added.
+
+Enter command: print
+2023-10-5 14:30: Temperature = 25
+2023-10-6 15:45: Temperature = 22
+
+Enter command: sort
+Records sorted.
+
+Enter command: print
+2023-10-5 14:30: Temperature = 25
+2023-10-6 15:45: Temperature = 22
+
+Enter command: stats month 10
+Month 10 Statistics:
+Average Temperature: 23.50
+Minimum Temperature: 22
+Maximum Temperature: 25
+
+Enter command: stats year
+Yearly Statistics:
+Average Temperature: 23.50
+Minimum Temperature: 22
+Maximum Temperature: 25
+
+Enter command: exit
+Exiting the program.
