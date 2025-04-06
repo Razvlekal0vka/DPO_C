@@ -6,10 +6,10 @@ all: main
 main: main.o temp_api.o
 	$(CC) $(CFLAGS) -o main main.o temp_api.o
 
-main.o: HomeWork11/main.c temp_api.h
+main.o: main.c temp_api.h
 	$(CC) $(CFLAGS) -c main.c
 
-temp_api.o: HomeWork11/temp_api.c temp_api.h
+temp_api.o: temp_api.c temp_api.h
 	$(CC) $(CFLAGS) -c temp_api.c
 
 clean:
