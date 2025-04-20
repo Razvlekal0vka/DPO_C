@@ -1,16 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -Wextra -Werror
+TARGET = main
 
-all: main
+SRCS = main.c temp_api.c
+OBJS = $(SRCS:.c=.o)
 
-main: temp_api.o main.o
-	$(CC) $(CFLAGS) -o main temp_api.o main.o
+all: $(TARGET)
 
-temp_api.o: temp_api.c temp_api.h
-	$(CC) $(CFLAGS) -c temp_api.c
-
-main.o: main.c temp_api.h
-	$(CC) $(CFLAGS) -c main.c
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
 clean:
-	rm -f *.o main
+	rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean

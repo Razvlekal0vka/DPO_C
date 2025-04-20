@@ -1,7 +1,10 @@
 #ifndef TEMP_API_H
 #define TEMP_API_H
 
-// Определение структуры для хранения данных о температуре
+#include <stdio.h>
+#include <stdlib.h>
+
+// Структура для хранения данных о температуре
 typedef struct {
     int year;
     int month;
@@ -9,16 +12,18 @@ typedef struct {
     int hour;
     int minute;
     int temperature;
-} TemperatureData;
+} TemperatureRecord;
 
 // Прототипы функций
-void calculateMonthlyStatistics(TemperatureData temps[], int size, int month, float *avgTemp, int *minTemp, int *maxTemp);
-void calculateYearlyStatistics(TemperatureData temps[], int size, float *avgTemp, int *minTemp, int *maxTemp);
-void printMonthlyStatistics(int month, float avgTemp, int minTemp, int maxTemp);
-void printYearlyStatistics(float avgTemp, int minTemp, int maxTemp);
-void addRecord(TemperatureData temps[], int *size, TemperatureData newRecord);
-void deleteRecord(TemperatureData temps[], int *size, int index);
-void sortRecords(TemperatureData temps[], int size);
-void printRecords(TemperatureData temps[], int size);
+void addRecord(TemperatureRecord** records, int* size, TemperatureRecord record);
+void deleteRecord(TemperatureRecord** records, int* size, int index);
+void sortRecords(TemperatureRecord* records, int size);
+void printRecords(TemperatureRecord* records, int size);
+void printMonthlyStats(TemperatureRecord* records, int size, int month);
+void printYearlyStats(TemperatureRecord* records, int size);
+void loadFromCSV(TemperatureRecord** records, int* size, const char* filename);
+void saveToCSV(TemperatureRecord* records, int size, const char* filename);
+void printHelp();
+void listFiles();
 
 #endif // TEMP_API_H
